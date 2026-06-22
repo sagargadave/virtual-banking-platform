@@ -1,5 +1,6 @@
 package com.virtualbank.platform.controller;
 
+import com.virtualbank.platform.dto.LoginRequestDto;
 import com.virtualbank.platform.dto.RegisterRequestDto;
 import com.virtualbank.platform.service.AuthService;
 import lombok.RequiredArgsConstructor;
@@ -16,5 +17,11 @@ public class AuthController {
     public String register(@RequestBody RegisterRequestDto request) {
 
         return authService.register(request);
+    }
+
+    @PostMapping("/login")
+    public String login(@RequestBody LoginRequestDto request) {
+
+        return authService.login(request);
     }
 }

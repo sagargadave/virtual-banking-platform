@@ -3,6 +3,11 @@ package com.virtualbank.platform.repository;
 import com.virtualbank.platform.entity.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface AccountRepository extends JpaRepository<Account, Long> {
+import java.util.Optional;
+
+public interface AccountRepository
+        extends JpaRepository<Account, Long> {
+
+    Optional<Account> findByAccountNumber(String accountNumber);
 
 }

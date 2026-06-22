@@ -1,5 +1,6 @@
 package com.virtualbank.platform.service;
 
+import com.virtualbank.platform.dto.LoginRequestDto;
 import com.virtualbank.platform.dto.RegisterRequestDto;
 import com.virtualbank.platform.entity.User;
 import com.virtualbank.platform.enums.Role;
@@ -9,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
+import java.util.Optional;
+
 import com.virtualbank.platform.entity.Account;
 import com.virtualbank.platform.enums.AccountType;
 import com.virtualbank.platform.enums.AccountStatus;
@@ -22,6 +25,8 @@ public class AuthServiceImpl implements AuthService {
     private final AccountRepository accountRepository;
 
     private final PasswordEncoder passwordEncoder;
+
+    private final JwtService jwtService;
 
     @Override
     public String register(RegisterRequestDto request) {
@@ -57,4 +62,25 @@ public class AuthServiceImpl implements AuthService {
         return "User Registered Successfully";
     }
 
+    @Override
+    public String login(LoginRequestDto request) {
+
+        Optional<User> optionalUser = userRepository.findByEmail(request.getEmail());
+
+        if (optionalUser.isEmpty()) {
+            return "Invalid Email";
+        }
+
+        User user = optionalUser.get();
+
+        boolean isPasswordValid = passwordEncoder.matches( request.getPassword(), user.getPassword() );
+
+        if (!isPasswordValid) {
+            return "Invalid Password";
+        }
+
+        return jwtService.generateToken(
+                user.getEmail()
+        );
+    }
 }
