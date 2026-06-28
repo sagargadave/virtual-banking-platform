@@ -19,8 +19,7 @@ public class TransactionController {
     getHistory(
             @PathVariable String accountNumber) {
 
-        return transactionService
-                .getTransactionHistory(accountNumber);
+        return transactionService.getTransactionHistory(accountNumber);
     }
 
     @GetMapping("/mini-statement/{accountNumber}")
@@ -28,7 +27,6 @@ public class TransactionController {
     getMiniStatement(
             @PathVariable String accountNumber) {
 
-        return transactionService
-                .getMiniStatement(accountNumber);
+        return transactionService.getMiniStatement(accountNumber);
     }
 }

@@ -68,7 +68,10 @@ public class AuthServiceImpl implements AuthService {
         Optional<User> optionalUser = userRepository.findByEmail(request.getEmail());
 
         if (optionalUser.isEmpty()) {
-            return "Invalid Email";
+
+            throw new RuntimeException(
+                    "Invalid Email"
+            );
         }
 
         User user = optionalUser.get();
@@ -76,7 +79,10 @@ public class AuthServiceImpl implements AuthService {
         boolean isPasswordValid = passwordEncoder.matches( request.getPassword(), user.getPassword() );
 
         if (!isPasswordValid) {
-            return "Invalid Password";
+
+            throw new RuntimeException(
+                    "Invalid Password"
+            );
         }
 
         return jwtService.generateToken(

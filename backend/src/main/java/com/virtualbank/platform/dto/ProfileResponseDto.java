@@ -1,15 +1,13 @@
 package com.virtualbank.platform.dto;
 
-import lombok.*;
-
-import java.time.LocalDate;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Builder
-public class RegisterRequestDto {
+public class ProfileResponseDto {
 
     private String firstName;
 
@@ -17,11 +15,7 @@ public class RegisterRequestDto {
 
     private String email;
 
-    private String password;
-
     private String phone;
 
     private String address;
-
-    private LocalDate dateOfBirth;
 }
