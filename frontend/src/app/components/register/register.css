@@ -1,0 +1,135 @@
+.register-page{
+
+    min-height:100vh;
+
+    display:flex;
+
+    background:#f8fafc;
+}
+
+.register-left{
+
+    flex:1;
+
+    background:linear-gradient(
+        135deg,
+        #0f172a,
+        #2563eb
+    );
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:60px;
+}
+
+.branding{
+
+    max-width:450px;
+}
+
+.branding h1{
+
+    font-size:48px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+}
+
+.branding p{
+
+    font-size:20px;
+
+    margin-bottom:30px;
+}
+
+.features{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+    font-size:18px;
+}
+
+.register-right{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+}
+
+.register-card{
+
+    width:650px;
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.1);
+}
+
+.register-card h2{
+
+    font-weight:700;
+
+    margin-bottom:5px;
+}
+
+.subtitle{
+
+    color:#64748b;
+
+    margin-bottom:25px;
+}
+
+.register-btn{
+
+    width:100%;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-weight:600;
+}
+
+.register-btn:hover{
+
+    background:#1d4ed8;
+}
+
+.login-link{
+
+    text-align:center;
+
+    margin-top:20px;
+}
+
+.form-control{
+
+    border-radius:10px;
+}

@@ -1,0 +1,45 @@
+<div class="container mt-5">
+
+    <h2>Transaction History</h2>
+
+    <table class="table table-bordered table-striped mt-3">
+
+        <thead class="table-dark">
+
+            <tr>
+
+                <th>Transaction ID</th>
+                <th>Amount</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Date</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            @for (transaction of transactions; track transaction.transactionId) {
+
+            <tr>
+
+                <td>{{ transaction.transactionId }}</td>
+
+                <td>{{ transaction.amount }}</td>
+
+                <td>{{ transaction.transactionType }}</td>
+
+                <td>{{ transaction.description }}</td>
+
+                <td>{{ transaction.transactionDate }}</td>
+
+            </tr>
+
+            }
+
+        </tbody>
+
+    </table>
+
+</div>

@@ -1,0 +1,150 @@
+<div class="login-page">
+
+    <div class="login-left">
+
+        <div class="branding">
+
+            <h1>🏦 Virtual Banking Platform</h1>
+
+            <p>
+                Secure Banking For Modern Customers
+            </p>
+
+            <ul>
+
+                <li>✓ Secure Transactions</li>
+
+                <li>✓ Instant Transfers</li>
+
+                <li>✓ Transaction History</li>
+
+                <li>✓ Account Management</li>
+
+                <li>✓ PDF Statements</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <div class="login-right">
+
+        <div class="login-card">
+
+            <h2>Welcome Back</h2>
+
+            <p class="subtitle">
+                Login to your account
+            </p>
+
+            @if(loginError){
+
+            <div class="alert alert-danger">
+
+                Invalid Email or Password
+
+            </div>
+
+            }
+
+            <div class="mb-3">
+
+                <label>Email</label>
+
+                <input
+                    type="email"
+                    class="form-control"
+                    [(ngModel)]="email">
+
+                @if(submitted && !email.trim()){
+
+                <small class="text-danger">
+
+                    Email is required
+
+                </small>
+
+                }
+
+                @if(submitted && email && !email.includes('@')){
+
+                <small class="text-danger">
+
+                    Please enter a valid email
+
+                </small>
+
+                }
+
+            </div>
+
+            <div class="mb-3">
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    class="form-control"
+                    [(ngModel)]="password">
+
+                @if(submitted && !password.trim()){
+
+                <small class="text-danger">
+
+                    Password is required
+
+                </small>
+
+                }
+
+            </div>
+
+            <button
+                class="btn login-btn"
+                (click)="login()"
+                [disabled]="loading">
+
+                @if(loading){
+
+                    Logging in...
+
+                }
+
+                @else{
+
+                    Login
+
+                }
+
+            </button>
+
+            <div class="links">
+
+                <a>
+
+                    Forgot Password?
+
+                </a>
+
+            </div>
+
+            <hr>
+
+            <p class="text-center">
+
+                Don't have an account?
+
+                <a routerLink="/register">
+
+                    Register
+
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>

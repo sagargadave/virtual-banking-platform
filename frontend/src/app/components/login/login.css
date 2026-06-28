@@ -1,0 +1,151 @@
+body{
+    margin:0;
+    padding:0;
+}
+
+.login-page{
+
+    min-height:100vh;
+
+    display:flex;
+
+    background:#f8fafc;
+}
+
+.login-left{
+
+    flex:1;
+
+    background:linear-gradient(
+        135deg,
+        #0f172a,
+        #2563eb
+    );
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:50px;
+}
+
+.branding h1{
+
+    font-size:48px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+}
+
+.branding p{
+
+    font-size:20px;
+
+    margin-bottom:30px;
+}
+
+.branding ul{
+
+    list-style:none;
+
+    padding:0;
+}
+
+.branding li{
+
+    margin-bottom:15px;
+
+    font-size:18px;
+}
+
+.login-right{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#f8fafc;
+}
+
+.login-card{
+
+    width:450px;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.1);
+}
+
+.login-card h2{
+
+    font-weight:700;
+
+    margin-bottom:5px;
+}
+
+.subtitle{
+
+    color:#64748b;
+
+    margin-bottom:30px;
+}
+
+.login-btn{
+
+    width:100%;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-weight:600;
+}
+
+.login-btn:hover{
+
+    background:#1d4ed8;
+}
+
+.links{
+
+    text-align:right;
+
+    margin-top:15px;
+}
+
+.links a{
+
+    text-decoration:none;
+}
+
+hr{
+
+    margin:25px 0;
+}
+
+.login-btn:disabled{
+
+    opacity: .7;
+
+    cursor: not-allowed;
+
+}

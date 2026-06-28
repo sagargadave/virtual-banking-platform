@@ -1,0 +1,47 @@
+<div class="container mt-5">
+
+    <div class="card shadow">
+
+        <div class="card-header">
+
+            <h3>Transfer Money</h3>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="mb-3">
+
+                <label>From Account Number</label>
+
+                <input type="text" class="form-control" [(ngModel)]="fromAccountNumber">
+
+            </div>
+
+            <div class="mb-3">
+
+                <label>To Account Number</label>
+
+                <input type="text" class="form-control" [(ngModel)]="toAccountNumber">
+
+            </div>
+
+            <div class="mb-3">
+
+                <label>Amount</label>
+
+                <input type="number" class="form-control" [(ngModel)]="amount">
+
+            </div>
+
+            <button class="btn btn-primary" (click)="transfer()">
+
+                Transfer
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

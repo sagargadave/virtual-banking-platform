@@ -1,0 +1,295 @@
+<div class="dashboard-container">
+
+    <!-- Welcome Banner -->
+
+    <div class="welcome-banner">
+
+        <div>
+
+            <h2>
+                Welcome Back,
+                {{ profile?.firstName || 'User' }}
+            </h2>
+
+            <p>
+                Secure Digital Banking Dashboard
+            </p>
+
+        </div>
+
+        <div class="user-summary">
+
+            <p>
+                <strong>Email:</strong>
+                {{ profile?.email }}
+            </p>
+
+            <p>
+                <strong>Phone:</strong>
+                {{ profile?.phone }}
+            </p>
+
+            <p>
+                <strong>Account:</strong>
+                {{ account?.accountNumber }}
+            </p>
+
+            <p>
+                <strong>Type:</strong>
+                {{ account?.accountType }}
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- Banking Card -->
+
+    <div class="bank-card">
+
+        <div class="card-top">
+
+            <span>VBP BANK</span>
+
+            <span>💳</span>
+
+        </div>
+
+        <div class="card-number">
+
+            **** **** **** 1234
+
+        </div>
+
+        <div class="card-bottom">
+
+            <div>
+
+                <small>CARD HOLDER</small>
+
+                <h6>
+
+                    {{ profile?.firstName }}
+
+                    {{ profile?.lastName }}
+
+                </h6>
+
+            </div>
+
+            <div>
+
+                <small>ACCOUNT</small>
+
+                <h6>
+
+                    {{ account?.accountNumber }}
+
+                </h6>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Account Summary -->
+
+    <div class="stats-grid">
+
+        <div class="stat-card blue">
+
+            <h6>Account Number</h6>
+
+            <h3>{{ account?.accountNumber }}</h3>
+
+        </div>
+
+        <div class="stat-card green">
+
+            <h6>Account Type</h6>
+
+            <h3>{{ account?.accountType }}</h3>
+
+        </div>
+
+        <div class="stat-card orange">
+
+            <h6>Status</h6>
+
+            <h3>{{ account?.status }}</h3>
+
+        </div>
+
+        <div class="stat-card purple">
+
+            <h6>Available Balance</h6>
+
+            <h3>₹ {{ account?.balance }}</h3>
+
+        </div>
+
+    </div>
+
+    <!-- Banking Services -->
+
+    <div class="services-grid">
+
+        <div class="service-card" routerLink="/deposit">
+
+            <h5>Deposit Funds</h5>
+
+            <p>Add money to your account</p>
+
+        </div>
+
+        <div class="service-card" routerLink="/withdraw">
+
+            <h5>Withdraw Funds</h5>
+
+            <p>Secure cash withdrawal</p>
+
+        </div>
+
+        <div class="service-card" routerLink="/transfer">
+
+            <h5>Money Transfer</h5>
+
+            <p>Transfer between accounts</p>
+
+        </div>
+
+        <div class="service-card" routerLink="/transaction-history">
+
+            <h5>Transactions</h5>
+
+            <p>View account activity</p>
+
+        </div>
+        <div
+            class="service-card"
+            routerLink="/statement">
+
+            <h5>Account Statement</h5>
+
+            <p>Download PDF Statement</p>
+
+        </div>        
+        <div class="service-card" routerLink="/profile">
+
+            <h5>Profile</h5>
+
+            <p>Manage account information</p>
+
+        </div>
+
+        <div class="service-card logout-card" (click)="logout()">
+
+            <h5>Logout</h5>
+
+            <p>Securely sign out</p>
+
+        </div>
+
+    </div>
+
+    <!-- Recent Transactions -->
+
+    <div class="transactions-card">
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+
+            <h3>Recent Transactions</h3>
+
+            <span class="badge bg-primary">
+
+                {{ transactions.length }}
+
+                Transactions
+
+            </span>
+
+        </div>
+
+        <table class="table table-hover">
+
+            <thead>
+
+                <tr>
+
+                    <th>Transaction Id</th>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @for (txn of transactions; track txn.transactionId) {
+
+                <tr>
+
+                    <td>{{ txn.transactionId }}</td>
+
+                    <td>
+
+                        @if(txn.transactionType === 'DEPOSIT') {
+
+                        <span class="badge bg-success">
+                            DEPOSIT
+                        </span>
+
+                        }
+
+                        @else if(txn.transactionType === 'WITHDRAW') {
+
+                        <span class="badge bg-danger">
+                            WITHDRAW
+                        </span>
+
+                        }
+
+                        @else {
+
+                        <span class="badge bg-primary">
+                            TRANSFER
+                        </span>
+
+                        }
+
+                    </td>
+
+                    <td>₹ {{ txn.amount }}</td>
+
+                    <td>
+                        {{ txn.transactionDate | date:'dd MMM yyyy, hh:mm a' }}
+                    </td>
+
+                </tr>
+
+                }
+
+                @empty {
+
+                <tr>
+
+                    <td colspan="4" class="text-center">
+
+                        No Transactions Found
+
+                    </td>
+
+                </tr>
+
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

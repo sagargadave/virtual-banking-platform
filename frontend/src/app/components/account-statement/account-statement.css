@@ -1,0 +1,19 @@
+.card {
+
+    border-radius: 15px;
+
+}
+
+.card-header {
+
+    background: #2563eb;
+
+    color: white;
+
+}
+
+button {
+
+    width: 100%;
+
+}
