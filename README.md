@@ -149,11 +149,3 @@ Through this project I gained hands-on experience with:
 * Git & GitHub Workflow
 
 ---
-
-## 👨‍💻 Author
-
-**Sagar Gadave**
-
-* MSc Computer Science
-* Java Full Stack Developer
-* GitHub: https://github.com/sagargadave
