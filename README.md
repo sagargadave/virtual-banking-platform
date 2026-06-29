@@ -64,7 +64,6 @@ A Full-Stack Virtual Banking Application that provides secure account management
 
 ### Other Tools
 
-* Git & GitHub
 * Postman
 * IntelliJ IDEA
 * Visual Studio Code
